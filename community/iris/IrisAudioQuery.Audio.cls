@@ -1,0 +1,1 @@
+Class IrisAudioQuery.Audio Extends %Persistent { Property FileName As %String; Property AudioData As %Stream.GlobalBinary; Property MediaType As %String;}

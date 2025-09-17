@@ -1,6 +1,10 @@
+twelvelabs
+baml-py
 fastapi
 sqlmodel
 a2wsgi
+sqladmin
+twilio
 
 ## iris community package
 # db-api

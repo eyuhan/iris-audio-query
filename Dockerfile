@@ -1,12 +1,7 @@
 ARG IMAGE=containers.intersystems.com/intersystems/iris-community:latest-preview
-FROM $IMAGE 
+FROM $IMAGE
 
 WORKDIR /irisdev/app
-
-## Python stuff
-ENV IRISUSERNAME "SuperUser"
-ENV IRISPASSWORD "SYS"
-ENV IRISNAMESPACE "IRISAPP"
 
 ENV PYTHON_PATH=/usr/irissys/bin/
 ENV LD_LIBRARY_PATH=${ISC_PACKAGE_INSTALLDIR}/bin:${LD_LIBRARY_PATH}

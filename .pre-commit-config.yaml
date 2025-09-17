@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.2
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        exclude: '.*\.dylib$'
+      - id: ruff-format
+        exclude: '.*\.dylib$'
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '.*\.dylib$'
+      - id: end-of-file-fixer
+        exclude: '.*\.dylib$'
+      - id: check-yaml
+        exclude: '.*\.dylib$'
+      - id: check-added-large-files
+        exclude: '.*\.dylib$'
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: '3.0.3'  # pick a git hash / tag to point to
+    hooks:
+    - id: editorconfig-checker

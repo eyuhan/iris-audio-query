@@ -1,15 +1,14 @@
 from iop import BusinessService
-from msg import HttpMessageRequest, HttpMessageResponse
+
+from models.schemas import AudioUploadRequest, AudioQueryRequest
+from interop.msg import HttpMessageResponse
+
 
 class BS(BusinessService):
-    def on_process_input(self, message_input)->HttpMessageResponse:
-        # Create a new HttpMessageRequest
-        msg = HttpMessageRequest(
-            method=message_input.method,
-            url=message_input.url,
-            headers={k: v for k, v in message_input.headers.items()},
-            body=message_input.body
-        )
-        self.log_info(f"Request: {msg}")
-        response = self.send_request_sync('BO', msg)
-        return response
+    def on_message(self, request) -> HttpMessageResponse:
+        if isinstance(request, AudioUploadRequest):
+            return self.send_request_sync("EmbedBO", request)
+        elif isinstance(request, AudioQueryRequest):
+            return self.send_request_sync("QueryBO", request)
+        else:
+            raise ValueError("Unknown request type")

@@ -1,15 +1,25 @@
 version: '3.6'
 services:
   iris:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     restart: always
     environment:
       - ISC_CPF_MERGE_FILE=/irisdev/app/merge.cpf
-    command: 
+      - TWELVELABS_API_KEY=${TWELVELABS_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_NAMESPACE=${DATABASE_NAMESPACE}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - IRISUSERNAME=${IRISUSERNAME}
+      - IRISPASSWORD=${IRISPASSWORD}
+      - IRISNAMESPACE=${IRISNAMESPACE}
+    command:
       --check-caps false
-    ports: 
+    ports:
       - 1972
       - 53795:52773
       - 8001:8001

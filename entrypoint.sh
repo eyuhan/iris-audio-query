@@ -10,7 +10,7 @@
 iop --init
 
 # load production
-iop -m /irisdev/app/community/interop/settings.py
+iop -m /irisdev/app/community/settings.py
 
 # start production
 iop --start Python.Production

@@ -1,7 +1,7 @@
 GET http://localhost:53795/fastapi/iris
 Accept: application/json
 
-### 
+###
 POST http://localhost:53795/fastapi/interop
 Accept: application/json
 Content-Type: application/json
@@ -27,4 +27,3 @@ Accept: application/json
   "title": "foodhg",
   "content": "bar"
 }
-
